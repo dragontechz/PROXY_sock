@@ -13,12 +13,16 @@ buffer = 1024*1024
 
 def findhost(payload):
      index = payload.find("Host:")
-     if index != -1:
-          debut = index + 6
-          fin = payload.find("\r\n",debut)
-          if fin != -1:
-               host = payload[debut:fin].strip()
-               return host
+     try:
+          if index != -1:
+               debut = index + 6
+               fin = payload.find("\r\n",debut)
+               if fin != -1:
+                    host = payload[debut:fin].strip()
+                    return host
+               return None
+          return None
+     except TypeError:
           return None
 
 def sock():
