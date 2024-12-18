@@ -125,8 +125,8 @@ class threadforclient(threading.Thread):
             # Connect to the destination serve
             with socket.create_connection(self.dst_address) as ssh_conn:
                  # Start bi-directional stream copying
-                threading.Thread(target=copy_streams, args=(ssh_conn, self.conn)).start()
-                threading.Thread(target=copy_streams, args=(self.conn, ssh_conn)).start()
+                threading.Thread(target=copy_streams, args=(self.conn,ssh_conn)).start()
+                threading.Thread(target=copy_streams, args=(ssh_conn,self.conn )).start()
                 
         except Exception as e:
             print(f"Error in handler: {e}")
