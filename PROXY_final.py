@@ -27,17 +27,9 @@ def sock():
      return sock
 
 def handle_data(data):
-     if len(data.decode()) == -1:
-          return None
-     data = data.decode()
-     print("handling request ...")
-     host = i
-
-     if len(host) != -1:
-          print("request on host : {}".format(host))
-          sock2host = sock()
-          try:
                     try:
+                         host =i
+                         sock2host = sock()
                          sock2host.connect((host,22))
                          sock2host.send(data.encode('utf-8'))
                          response = sock2host.recv(buffer)
@@ -46,13 +38,6 @@ def handle_data(data):
                          print("cann't connect to host: {}".format(host))
                          response = b'cannot connect to ' + host.encode('utf-8')
                          return response
-
-          except ConnectionRefusedError:
-               return b'cannot connect to requested host'
-
-     elif type(host) == type(None):
-          return b''
-     
 def handle_conn(conn):
      data = conn.recv(buffer)
      print(data)
