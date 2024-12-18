@@ -8,7 +8,7 @@ IP = ""
 PORT = 9090
 default_HOST = '0.0.0.0:22'
 MSG = '@Dragontechz on telegram'
-RESPONSE = (f'HTTP/1.1 200 OK\r\nmessage: {MSG}\r\n\r\n').encode("utf-8")
+RESPONSE = (f'HTTP/1.1 200 OK message: {MSG}\r\n\r\n').encode("utf-8")
 buffer = 1024
 
 i = '127.0.0.1'
@@ -23,13 +23,13 @@ class threadforclient(threading.Thread):
           self.ip,self.port = addr
 
      def run(self):
-          self.conn.recv(buffer)
+          data = self.conn.recv(buffer)
+          print(data)
           self.conn.send(RESPONSE)
-          
           conn_to_ssh = sock().connect(('127.0.0.1',22))
           try:
                     print("client {} has bieng added".format(self.ip))
-                    while self.conn:
+                    while True:
                          if conn_to_ssh:
                               data = self.conn.recv(buffer)
                               print(f'client sent :{data}')
