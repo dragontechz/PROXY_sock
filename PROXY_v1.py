@@ -16,7 +16,7 @@ def handler(self, client_conn, tls_client):
                 # Handle stunnel mode here (if needed)
                 pass
             # Send handshake response
-            client_conn.sendall(b"HTTP/1.1 101 Switching Protocols\r\n\r\n")
+            client_conn.sendall(b"HTTP/1.1 200 OK \r\n\r\n")
             # Connect to the destination serve
             with socket.create_connection(self.dst_address) as ssh_conn:
                  # Start bi-directional stream copying
