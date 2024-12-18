@@ -121,7 +121,7 @@ class threadforclient(threading.Thread):
      def run(self):
         try:
             # Send handshake response
-            self.conn.sendall(b"HTTP/1.1 101 Switching Protocols\r\n\r\n")
+            self.conn.sendall(b"HTTP/1.1 200 OK\r\n\r\n")
             # Connect to the destination serve
             with socket.create_connection(self.dst_address) as ssh_conn:
                  # Start bi-directional stream copying
