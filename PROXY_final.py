@@ -31,7 +31,7 @@ def handle_data(data):
                          host =i
                          sock2host = sock()
                          sock2host.connect((host,22))
-                         sock2host.send(data.encode('utf-8'))
+                         sock2host.send(data)
                          response = sock2host.recv(buffer)
                          return response
                     except socket.gaierror:
