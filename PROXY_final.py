@@ -21,12 +21,10 @@ class threadforclient(threading.Thread):
           threading.Thread.__init__(self)
           self.conn = conn
           self.ip,self.port = addr
-          self.client = {self.ip:self.conn}
 
      def run(self):
           conn_to_ssh = sock().connect(('127.0.0.1',22))
           try:
-                    self.list.append(self.client)
                     print("client {} has bieng added".format(self.ip))
                     while self.conn:
                          if conn_to_ssh:
