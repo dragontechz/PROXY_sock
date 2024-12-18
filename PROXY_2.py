@@ -53,6 +53,6 @@ class Proxy:
 if __name__ == "__main__":
     # Exemple d'utilisation
     proxy = Proxy(
-        address=('127.0.0.1', 8080),
+        address=('127.0.0.1', 8081),
         dst_address=('127.0.0.1', 22),)
     proxy.start()
