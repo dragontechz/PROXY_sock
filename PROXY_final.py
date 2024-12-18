@@ -8,7 +8,7 @@ PORT = 9090
 default_HOST = '0.0.0.0:22'
 MSG = '@Dragontechz on telegram'
 RESPONSE = (f'HTTP/1.1 200 OK\r\nmessage: {MSG}\r\n\r\n').encode("utf-8")
-buffer = 1024*1024
+buffer = 1024*5
 
 
 def findhost(payload):
@@ -78,10 +78,11 @@ def handle_conn(conn):
           data = conn.recv(buffer)
           print(data)
           if data:
-               sock_ssh.send(data)
+               sock_ssh.sendall(data)
                response = sock_ssh.recv(buffer)
                print('sending respond to client')
-               conn.send(response)
+               print(response)
+               conn.sendall(response)
                continue
 
 class threadforclient(threading.Thread):
