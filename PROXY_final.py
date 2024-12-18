@@ -26,7 +26,7 @@ class threadforclient(threading.Thread):
           data = self.conn.recv(buffer)
           print(data)
           self.conn.send(RESPONSE)
-          conn_to_ssh = sock().connect(('127.0.0.1',22))
+          conn_to_ssh = sock().connect(('localhost',22))
           try:
                     print("client {} has bieng added".format(self.ip))
                     while True:
